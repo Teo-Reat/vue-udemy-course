@@ -1,22 +1,20 @@
 <template>
     <div>
-<!--        <div>{{ oneCounter }}</div>-->
         <div>{{ twiceCounter }}</div>
         <div>{{ $store.state.counter }}</div>
-        <button @click="increment">Increment</button>
-        <button @click="decrement">Decrement</button>
+        <button @click="increment (100)">Increment</button>
+        <button @click="decrement (50)">Decrement</button>
     </div>
 </template>
 
 <script>
-    // import { mapState } from 'vuex'
     import { mapGetters } from 'vuex'
     import { mapMutations } from 'vuex'
 
     export default {
         computed: {
             ...mapGetters([
-                'twiceCounter', 'oneCounter'
+                'twiceCounter'
             ])
         },
         methods: {
