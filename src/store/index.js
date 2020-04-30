@@ -1,42 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import counter from './modules/counter'
+// import value from './modules/value'
+import * as actions from './actions'
+import * as getters from './getters'
+import * as mutations from './mutations'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    modules: {
+        counter,
+        // value
+    },
     state: {
-        counter: 0
+        value: 0
     },
-    mutations: {
-        increment: (state, payload) => {
-            state.counter += payload
-        },
-        decrement: (state, payload) => {
-            state.counter -= payload
-        }
-    },
-    actions: {
-        increment: ({ commit }, payload) => {
-            commit ('increment', payload)
-        },
-        decrement: ({ commit }, payload) => {
-            commit ('decrement', payload)
-        },
-        asyncIncrement ({ commit }, payload) {
-            setTimeout (() => {
-                commit ('increment', payload.by)
-            }, payload.duration)
-        },
-        asyncDecrement ({ commit }, payload) {
-            setTimeout (() => {
-                commit ('decrement', payload.by)
-            }, payload.duration)
-        },
-    },
-    getters: {
-        twiceCounter: state => {
-            return state.counter * 2
-        },
-    },
-    modules: {}
+    actions,
+    mutations,
+    getters
 })

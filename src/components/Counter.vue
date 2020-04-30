@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>{{ twiceCounter }}</div>
-        <div>{{ $store.state.counter }}</div>
+        <div>{{ getCounter }}</div>
         <button @click="increment (100)">Increment</button>
         <button @click="decrement (50)">Decrement</button>
     </div>
@@ -14,7 +14,7 @@
     export default {
         computed: {
             ...mapGetters([
-                'twiceCounter'
+                'twiceCounter', 'getCounter'
             ])
         },
         methods: {
