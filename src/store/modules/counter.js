@@ -1,3 +1,5 @@
+import * as types from '../types'
+
 const state = {
     counter: 0,
 }
@@ -28,10 +30,10 @@ const actions = {
     }
 }
 const getters = {
-    twiceCounter: state => {
+    [types.DOUBLE_COUNTER]: state => {
         return state.counter * 2
     },
-    getCounter: state => {
+    [types.CLICK_COUNTER]: state => {
         return state.counter
     }
 }

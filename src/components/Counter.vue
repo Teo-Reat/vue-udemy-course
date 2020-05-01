@@ -8,21 +8,23 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
-    import { mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import * as types from '../store/types'
 
-    export default {
-        computed: {
-            ...mapGetters([
-                'twiceCounter', 'getCounter'
-            ])
-        },
-        methods: {
-            ...mapMutations([
-                'increment', 'decrement'
-            ])
-        }
+export default {
+    computed: {
+        ...mapGetters({
+            twiceCounter: types.DOUBLE_COUNTER,
+            getCounter: types.CLICK_COUNTER
+        })
+    },
+    methods: {
+        ...mapMutations([
+            'increment', 'decrement'
+        ])
     }
+}
 </script>
 
 <style scoped>
